@@ -1,0 +1,47 @@
+En la topologia se pueden observar 5 redes en total
+A R1 están directamente conectadas 2, a R2, 3 y a R3, 2
+Para llegar a las redes que no están directamente conectadas, R1 necesita de una ruta estática
+R2, de 2 rutas estáticas y R2 de una ruta estática
+
+No se ha podido hacer ping a PC2 y PC3 porque el host is unreachable, nos falta añadir las rutas
+para poder enviar los paquetes a redes externas.
+
+Una ruta estática recursiva es básicamente que tú tienes una ruta estática y sabes a qué dirección
+es el siguiente salto pero no sabes a que interfaz tienes que enviarlo, por lo que tienes que mirar dos
+veces tu tabla de rutas para un solo envío.
+
+Requiere dos búsquedas porque a pesar de que tu sepas cual es la ip del siguiente salto, no sabes porque
+interfaz debes enviar el paquete.
+
+
+No se puede conectar al PC3 porque las rutas estáticas del R2 no están configuradas y, por tanto, cuando el paquete 
+llega a R2, no sabe como continuar
+
+Una ruta estática conectada directamente no necesita buscar dos veces en la tabla de rutas, dado que ya sabe a que interfaz llegar
+
+Se muestran las ruta estáticas conectadas directamente con el comando show ip route
+
+Una ruta estática común necesita ser especificada para cada subred, sin embargo la ruta estática predeterminada envía todas las 
+ips por esa ruta general. Si sabemos que solo hay un gateway, se suele recomendar la ruta predeterminada.
+
+Se muestra de la siguiente manera:
+
+Gateway of last resort is 172.31.1.197 to network 0.0.0.0
+ 0.0.0.0/0 [
+Configuración de una ruta estática predeterminada
+
+El R1 puede configurarse con tres rutas estáticas para alcanzar todas las redes remotas en la topología de ejemplo. Sin embargo, el R1 es un router de rutas internas, ya que está conectado únicamente al R2. Por lo tanto, sería más eficaz configurar una ruta estática predeterminada.
+
+En el ejemplo de la ilustración, se configura una ruta estática predeterminada en el R1. Con la configuración del ejemplo, cualquier paquete que no coincida con entradas más específicas de la ruta se reenvía a 172.161/0] via 172.31.1.197
+ 
+ 
+ Una ruta completamente especificada es cuando especificas la intefaz y la ip de salida
+ 
+ b. ip route 172.31.1.0 255.255.255.192 S0/0/0 172.31.1.197
+ c. ip route 172.31.1.192 255.255.255.252 S0/0/0 172.31.1.197
+ d. ip route 172.31..0 255.255.255.0 S0/0/0 172.31.1.197
+ 
+ Para ver si las rutas estáticas e han configurado correctamente se pueden utilizar los comandos:
+ sh ip route
+ sh ip route static
+ sh run | section route

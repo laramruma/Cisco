@@ -1,0 +1,40 @@
+El nombre del host del router es Router.
+Tiene 4 interfaces Fast Ethernet
+	FastEthernet0/1/0
+	FastEthernet0/1/1
+	FastEthernet0/1/2
+	FastEthernet0/1/3
+Tiene 2 interfaces de GigabitEthernet
+	GigabitEthernet0/0
+	GigabitEthernet0/1
+Tiene 2 interfaces seriales
+	Serial0/0/0
+	Serial0/0/1
+	
+El rango de seriales que se muestra en las lineas vty son de 0 a 4
+Muestra que la startup config no está presente porque la configuracion que le hemos pueto,
+ no la hemos guardado de run a start. Por lo que actualmente no hay configuracion inicial
+ 
+ Para verificar los parámetros que hemos configurado hacemos un show run
+ 
+ Todos los routers deben tener un mensaje del día para evitar accesos sin autorizar. 
+	Si no pones ningún disclaimer legal, no puedes evitar (legalmente hablando) que accedan a tu router
+ 
+ Si no pidiese contraseña, me hubiera olvidado de configurar el comando password "contraseña" 
+	del line console 0
+ 
+ Se utiliza la contraseña enable secret porque es más segura y, por tanto, por defecto,
+	se utilizará esa siempre
+	
+Tendriamos que utilizar service password encryption para cifrar las siguientes contraseñas en el archivo de configuración.
+
+Para guardar la configuracion en la NVRAM utilizariamos copy running-config startup-config 
+La versión más corta e inequivoca de este comando sería copy run start
+
+El contenido de la NVRAM puede ser visto por show start
+
+Actualmente hay 3 archivos guardados en la memoria flash
+La imagen IOS es el archivo con extensión .bin "c1900-universalk9-mz.SPA.151-4.M4.bin" porque normalmente los archivos 
+.bin corresponden a sistemas operativos, como por ejemplo los SO de Linux se guardan en un .bin
+
+ 

@@ -1,0 +1,11 @@
+nombre = input("Introduzca su nombre: ")
+apellido = input("Introduzca su apellido: ")
+telefono = input("Introduzca su telefono: ")
+ciudad = input("Introduzca su ciudad: ")
+edad = int(input("Introduzca su edad: "))
+
+print("Nombre: ", nombre, "\n")
+print("Apellido: ", apellido, "\n")
+print("Telefono: ", telefono, "\n")
+print("Ciudad: ", ciudad, "\n")
+print("Edad: ", edad, "\n")

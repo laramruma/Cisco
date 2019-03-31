@@ -1,0 +1,10 @@
+Efectivamente existe conectividad entre dichos PCs.
+Entre PCs de otras redes no hay conectividad porque pertenecen a otras vlan y, por tanto están aislados.
+El beneficio que proporviona esta VLAN es que permite aislar dominios de difusión y, por tanto,
+la comunicacion entre diferentes PCs, aumentando así la seguridad, reduciendo coste y mejorando el 
+rendimiento
+
+
+Con el comando show vlan bried, se muestra solamente el nombre y estado de la VLAN y los puertos asociados
+
+
